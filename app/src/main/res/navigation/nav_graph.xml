@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_animalFeedingMenuFragment"
+            app:destination="@id/animalFeedingMenuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cropTreatmentMenuFragment"
+            app:destination="@id/cropTreatmentMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/animalFeedingMenuFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.AnimalFeedingMenuFragment"
+        android:label="fragment_animal_feeding_menu"
+        tools:layout="@layout/fragment_animal_feeding_menu" >
+        <action
+            android:id="@+id/action_animalFeedingMenuFragment_to_ganadoFragment"
+            app:destination="@id/ganadoFragment" />
+        <action
+            android:id="@+id/action_animalFeedingMenuFragment_to_gallinasFragment"
+            app:destination="@id/gallinasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ganadoFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.GanadoFragment"
+        android:label="fragment_ganado"
+        tools:layout="@layout/fragment_ganado" />
+    <fragment
+        android:id="@+id/gallinasFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.GallinasFragment"
+        android:label="fragment_gallinas"
+        tools:layout="@layout/fragment_gallinas" />
+    <fragment
+        android:id="@+id/cropTreatmentMenuFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.CropTreatmentMenuFragment"
+        android:label="fragment_crop_tratment_menu"
+        tools:layout="@layout/fragment_crop_tratment_menu" >
+        <action
+            android:id="@+id/action_cropTreatmentMenuFragment_to_cropTratmentCoffeFragment"
+            app:destination="@id/cropTratmentCoffeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cropTratmentCoffeFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.CropTratmentCoffeFragment"
+        android:label="fragment_crop_tratment_coffe"
+        tools:layout="@layout/fragment_crop_tratment_coffe" />
+</navigation>
