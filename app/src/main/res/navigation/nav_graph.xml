@@ -15,7 +15,11 @@
             app:destination="@id/createAccountFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_out_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -33,6 +37,12 @@
         <action
             android:id="@+id/action_homeFragment_to_cropTreatmentMenuFragment"
             app:destination="@id/cropTreatmentMenuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_milkProductionFragment"
+            app:destination="@id/milkProductionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_coffeProductionFragment"
+            app:destination="@id/coffeProductionFragment" />
     </fragment>
     <fragment
         android:id="@+id/animalFeedingMenuFragment"
@@ -70,4 +80,14 @@
         android:name="com.ncrdesarrollo.exampleprojectsena.CropTratmentCoffeFragment"
         android:label="fragment_crop_tratment_coffe"
         tools:layout="@layout/fragment_crop_tratment_coffe" />
+    <fragment
+        android:id="@+id/milkProductionFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.MilkProductionFragment"
+        android:label="fragment_milk_production"
+        tools:layout="@layout/fragment_milk_production" />
+    <fragment
+        android:id="@+id/coffeProductionFragment"
+        android:name="com.ncrdesarrollo.exampleprojectsena.CoffeProductionFragment"
+        android:label="fragment_coffe_production"
+        tools:layout="@layout/fragment_coffe_production" />
 </navigation>

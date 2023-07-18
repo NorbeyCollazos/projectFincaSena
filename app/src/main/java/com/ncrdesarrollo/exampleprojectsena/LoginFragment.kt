@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.ncrdesarrollo.exampleprojectsena.databinding.FragmentLoginBinding
 import com.ncrdesarrollo.exampleprojectsena.db.FincDB
-import com.ncrdesarrollo.exampleprojectsena.db.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -56,32 +55,23 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(R.id.createAccountFragment)
             }
 
+            val db = Room.databaseBuilder(
+                requireContext(),
+                FincDB::class.java,
+                "usersdb"
+            ).build()
+
             viewLifecycleOwner.lifecycleScope.launch {
-                withContext(Dispatchers.Default) {
-                    val db = Room.databaseBuilder(
-                        requireContext(),
-                        FincDB::class.java,
-                        "usersdb"
-                    ).build()
+                withContext(Dispatchers.IO) {
                     val users = db.userDao().getUsers()
+                    users.value?.forEach { value ->
+                        Log.d("users: ", value.email)
+                    }
                 }
             }
         }
 
         return binding.root
-    }
-
-    private suspend fun getUsers() {
-        val db = Room.databaseBuilder(
-            requireContext(),
-            FincDB::class.java,
-            "usersdb"
-        ).build()
-        withContext(Dispatchers.IO) {
-            // val register = db.userDao().registerUser(model)
-            val users = db.userDao().getUsers()
-            users.value?.get(0)?.let { Log.d("users: ", it.email) }
-        }
     }
 
     override fun onDestroyView() {

@@ -30,8 +30,12 @@ class HomeFragment : Fragment() {
             buttonCropTreatment.setOnClickListener {
                 findNavController().navigate(R.id.cropTreatmentMenuFragment)
             }
-            buttonMilkProduction.setOnClickListener { }
-            buttonCoffeeProduction.setOnClickListener { }
+            buttonMilkProduction.setOnClickListener {
+                findNavController().navigate(R.id.milkProductionFragment)
+            }
+            buttonCoffeeProduction.setOnClickListener {
+                findNavController().navigate(R.id.coffeProductionFragment)
+            }
         }
 
         return binding.root
